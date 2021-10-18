@@ -1,0 +1,29 @@
+<h1>Proyecto Angular</h1>
+<header>
+    <ul>
+        <li>
+            <a [routerLink]="['/aboutMe']" [routerLinkActive]="['actived']">About Me</a>
+        </li>
+        <li>
+            <a [routerLink]="['/projects']" [routerLinkActive]="['actived']">Projects</a>
+
+        </li>
+        <li id="logo">
+            <a href="http://google.com">S0</a>
+        </li>
+        <li>
+            <a [routerLink]="['/create']" [routerLinkActive]="['actived']">Create Proyect</a>
+
+        </li>
+        <li>
+            <a [routerLink]="['/contact']" [routerLinkActive]="['actived']">Contact</a>
+
+        </li>
+    </ul>
+</header>
+<section id="content">
+    <router-outlet></router-outlet>
+</section>
+<footer>
+    Master en Javascript &copy;
+</footer>
