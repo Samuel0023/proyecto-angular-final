@@ -305,6 +305,7 @@ form input[disabled] {
 
 .project img {
     width: 100%;
+    vertical-align: middle;
 }
 
 .project a {

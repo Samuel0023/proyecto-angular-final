@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable ,Type} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Project } from '../models/project';
 import { Global } from './global';
 import { Observable } from 'rxjs';
-import { Params } from '@angular/router';
 
 
 @Injectable()
@@ -29,13 +28,23 @@ export class ProjectService{
 
   public getProjects(): Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url + 'projects',{headers:headers})
+    return this._http.get(this.url + 'projects',{headers:headers});
   }
 
-  public saveAs(project:Project): Observable<any>{
+  public getProject(id:Number): Observable<any>{
+
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url + 'project'+'/'+id,{headers:headers});
+
+  }
+  deleteProject(id:Number): Observable<any>{
+
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.delete(this.url + 'projectDelete'+'/'+id,{headers:headers});
+  }
+  updateProject(project:Project):Observable<any>{
     let params = JSON.stringify(project);
     let headers = new HttpHeaders().set('Content-Type','application/json');
-
-    return;
+    return this._http.put(this.url + 'projectUpdate'+'/'+project._id,params,{headers:headers});
   }
 }
